@@ -20,10 +20,19 @@ RSpec 2 library to make it simple to spec Rails 3 ActionView extensions
         view.hello('david') { 'hello' }.should match /david/
       end   
       
-      with_action_view do |view|      
-        view.with_template(%{
+      with_action_view do |view| 
+
+        view.set :posts => ['post 1', 'post 2'], :title => 'Blog posts index'
+        view.instance_variable_get('@posts').should have(2).items
+           
+        res = view.with_template(%{
+          <%= @title %>
           <%= tab_for('kristian') { 'hello' } %>
-        }).should match /hello/      
+          <%= @posts.join(',') %>
+        })
+        res.should match /hello/
+        res.should match /Blog posts index/
+        res.should match /post 1/        
         
         with_action_view do |view|      
           view.with_template do %{

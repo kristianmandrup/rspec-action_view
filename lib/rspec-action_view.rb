@@ -13,6 +13,13 @@ class ActionViewTester
     end    
   end
 
+  def set attributes={}
+    attributes.each do |key, value|
+      instance_var = "@#{key}"
+      instance_variable_set(instance_var, value)
+    end
+  end
+
   def with_output_buffer(buf = nil)
     yield
   end  
