@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/rspec-action_view.rb",
+     "rspec-action_view.gemspec",
      "spec/rspec-action_view_spec.rb",
      "spec/spec_helper.rb"
   ]
