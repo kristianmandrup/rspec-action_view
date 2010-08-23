@@ -1,4 +1,4 @@
-# require 'active_support'
+require 'rspec'
 require 'action_view'
 require 'active_support/railtie'
 require 'action_view/template/handlers/erb'
@@ -17,8 +17,9 @@ class ActionViewTester
     yield
   end  
 
-  def with_template content
-    require 'erb'
+  def with_template content=nil, &block
+    require 'erb'      
+    content ||= yield
     template = ERB.new content
     template.result(binding)
   end
