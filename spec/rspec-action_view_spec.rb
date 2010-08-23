@@ -24,6 +24,11 @@ describe "My ViewHelpers" do
     with_action_view do |view|
       view.tab_for('kristian') { 'hello' }.should match /kristian/
       view.hello('david') { 'hello' }.should match /david/
+      
+      with_action_view do |view|      
+        view.with_template(%{
+          <%= tab_for('kristian') { 'hello' } %>
+        }).should match /hello/      
     end    
   end
 end

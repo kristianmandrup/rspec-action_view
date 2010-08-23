@@ -16,6 +16,12 @@ class ActionViewTester
   def with_output_buffer(buf = nil)
     yield
   end  
+
+  def with_template content
+    require 'erb'
+    template = ERB.new content
+    template.result(binding)
+  end
   
   def self.tests *helpers
     helpers.flatten.each do |name|
