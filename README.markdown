@@ -18,7 +18,21 @@ RSpec 2 library to make it simple to spec Rails 3 ActionView extensions
       with_action_view do |view|
         view.tab_for('kristian') { 'hello' }.should match /kristian/
         view.hello('david') { 'hello' }.should match /david/
-      end    
+      end   
+      
+      with_action_view do |view|      
+        view.with_template(%{
+          <%= tab_for('kristian') { 'hello' } %>
+        }).should match /hello/      
+        
+        with_action_view do |view|      
+          view.with_template do %{
+            <%= tab_for('kristian') { 'hello' } %>
+          }
+          end.should match /hello/      
+        end
+      end
+             
     end
   end  
 </pre>
