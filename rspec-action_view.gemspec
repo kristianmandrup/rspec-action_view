@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = %q{2010-08-23}
+  s.date = %q{2010-08-25}
   s.description = %q{RSpec 2 library to make it simple to spec Rails 3 ActionView extensions}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
@@ -25,6 +25,8 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/rspec-action_view.rb",
+     "lib/rspec-action_view/action_view_tester.rb",
+     "lib/rspec-action_view/macro.rb",
      "rspec-action_view.gemspec",
      "spec/rspec-action_view_spec.rb",
      "spec/spec_helper.rb"
