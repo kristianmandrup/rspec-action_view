@@ -6,6 +6,7 @@ require 'action_view/template/handlers/erb'
 class ActionViewTester
   include ActionView::Helpers::TagHelper  
   include ActionView::Helpers::CaptureHelper
+  include ActionView::Helpers::TextHelper  
 
   def initialize &block
     if block
