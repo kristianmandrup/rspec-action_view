@@ -1,4 +1,5 @@
 require 'action_view'
+require 'action_view/base'
 require 'active_support/railtie'
 require 'action_view/template/handlers/erb'
 
