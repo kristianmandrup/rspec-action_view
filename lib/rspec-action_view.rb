@@ -1,7 +1,8 @@
 require 'rspec'
-require 'rspec-action_view/action_view_tester'
-require 'rspec-action_view/macro'
+require 'require_all'
+
+require_all File.dirname(__FILE__) + '/rspec-action_view'
 
 RSpec.configure do |config|
-  config.extend ActionViewTester::Macro
+  config.extend RSpec::ActionView::Macro
 end
