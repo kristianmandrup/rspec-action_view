@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rspec-action_view}
-  s.version = "0.1.2"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -25,9 +25,11 @@ Gem::Specification.new do |s|
      "Rakefile",
      "VERSION",
      "lib/rspec-action_view.rb",
-     "lib/rspec-action_view/action_view_tester.rb",
-     "lib/rspec-action_view/macro.rb",
+     "lib/rspec-action_view/erb_template_inline.rb",
+     "lib/rspec-action_view/rspec/example_group.rb",
+     "lib/rspec-action_view/rspec/macro.rb",
      "rspec-action_view.gemspec",
+     "spec/rspec-action_view/erb_tester_spec.rb",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/kristianmandrup/rspec-action_view}
@@ -36,8 +38,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{RSpec for Rails 3 ActionView extensions}
   s.test_files = [
-    "spec/rspec-action_view/rspec-action_view_spec.rb",
-     "spec/rspec-action_view/with_blocks_spec.rb",
+    "spec/rspec-action_view/erb_tester_spec.rb",
      "spec/spec_helper.rb"
   ]
 
