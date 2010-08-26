@@ -1,6 +1,9 @@
 # Rspec for Rails 3 ActionView
 
 RSpec 2 library to make it simple to spec Rails 3 ActionView extensions.
+Works with locals, #html_safe and nested blocks using #with_output_buffer and much, much more...
+
+Enjoy! I know I am... ;)
 
 ## Install
 
@@ -23,8 +26,12 @@ RSpec 2 library to make it simple to spec Rails 3 ActionView extensions.
         content_tag :div, content, :class => clazz
       end
 
-      def name
-        'Kristian'
+      def my_name
+        'Kristian'.html_safe
+      end
+
+      def hi(first_name_, last_name)
+        "Hi #{first_name} #{last_name} !".html_safe
       end
     end
   end
@@ -34,7 +41,7 @@ RSpec 2 library to make it simple to spec Rails 3 ActionView extensions.
 
     it "should work" do
       with_engine(:erb) do |e|
-        e.run_template("hello <%= name %>").should match /Kristian/
+        e.run_template {"hello <%= my_name %>"}.should match /Kristian/
 
         e.run_template do 
           %{<%= tab_for :x do %>
@@ -43,6 +50,14 @@ RSpec 2 library to make it simple to spec Rails 3 ActionView extensions.
             <% end %>
           <% end %>}
         end.should match /ged/
+      end
+    end
+    
+    it "should assign Kristian to the local 'name' that is used in the erb" do
+      with_engine(:erb) do |e|
+        e.run_template_locals :first_name => 'Kristian', :last_name => 'Mandrup' do
+          %{<%= hi(first_name, last_name) %>}
+        end.should match /Kristian/
       end
     end
   end  
