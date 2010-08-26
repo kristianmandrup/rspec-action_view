@@ -4,7 +4,7 @@ module RSpec::Core
       engine = RSpec::ActionView::ERBTemplateEngine.new
       
       if block
-        block.arity < 1 ? engine.instance_eval(&block) : block.call(engine)
+        block.arity < 1 ? engine.instance_eval(&block) : block.call(engine, engine.view)
       end
     end      
     
