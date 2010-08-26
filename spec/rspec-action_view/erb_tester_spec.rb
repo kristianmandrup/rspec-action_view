@@ -44,14 +44,14 @@ describe 'My View extensions!' do
   
   it "should extend with single module MyView" do
     with_engine(:erb) do |e|
-      e.run_template("<%= goodbye %>").should match /Goodbye/
+      e.run_template {"<%= goodbye %>"}.should match /Goodbye/
     end
   end
 
 
   it "should extend with module Say - hello, name" do
     with_engine(:erb) do |e|
-      e.run_template("hello <%= name %>").should match /Kristian/
+      e.run_template {"hello <%= name %>"}.should match /Kristian/
   
       e.run_template do 
         %{
@@ -65,7 +65,7 @@ describe 'My View extensions!' do
 
   it "should extend with modules Blip and Blap" do
     with_engine(:erb) do |e|
-      e.run_template("hello <%= blip %> go <%= blap %>").should match /blip me/
+      e.run_template {"hello <%= blip %> go <%= blap %>"}.should match /blip me/
     end
   end
 
