@@ -2,7 +2,7 @@ require 'spec_helper'
 
 module MyView
   
-  def goodbye name
+  def say_goodbye name
     "Goodbye #{name}".html_safe
   end
 
@@ -25,7 +25,7 @@ describe 'My View extensions!' do
     it "should assign Kristian to the local 'name' that is used in the erb and stub out a method on the view!" do
       with_engine(:erb) do |e, view|
         view.stubs(:host).returns 'localhost'
-        res = e.run_template(:locals => {:name => 'Kristian'}) {"<%= goodbye name %> host: <%= host %>"}
+        res = e.run_template(:locals => {:name => 'Kristian'}) {"<%= say_goodbye name %> host: <%= host %>"}
         res.should match /Kristian/
         res.should match /localhost/
       end
@@ -35,16 +35,16 @@ describe 'My View extensions!' do
   describe '#run_template' do  
     it "should assign Kristian to the local 'name' that is used in the erb, using full locals hash" do
       with_engine(:erb) do |e|
-        e.run_template(:locals => {:name => 'Kristian'}) {"<%= goodbye name %>"}.should match /Kristian/
+        e.run_template(:locals => {:name => 'Kristian'}) {"<%= say_goodbye name %>"}.should match /Kristian/
       end
     end
   end
-
+  
   describe '#run_template_locals' do
     it "should assign Kristian to the local 'name' that is used in the erb, using convenience hash for locals" do
       with_engine(:erb) do |e|
         e.run_template_locals :name => 'Kristian' do
-          %{<%= goodbye name %>}
+          %{<%= say_goodbye name %>}
         end.should match /Kristian/
       end
     end

@@ -7,7 +7,9 @@ begin
     gem.email = "kmandrup@gmail.com"
     gem.homepage = "http://github.com/kristianmandrup/rspec-action_view"
     gem.authors = ["Kristian Mandrup"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency "rspec", "~> 2.0.0"
+    gem.add_dependency "rspec", "~> 2.0.0"    
+    gem.add_dependency "r3_plugin_toolbox", "~> 2.0.0"        
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

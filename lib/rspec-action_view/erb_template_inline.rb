@@ -79,13 +79,15 @@ module RSpec
 
       def run_template_locals locals = {}, local_assigns = {}, &block
         raise ArgumentError, "Must take template as a block argument" if !block
-        options = {:inline => block.call}
-        render options.merge(:locals => locals), {}
+        options = {:inline => block.call}.merge(:locals => locals)
+        render options, local_assigns
       end
 
       def run_template options = {}, local_assigns = {}, &block
+
         raise ArgumentError, "Must take template as a block argument" if !block        
-        render options.merge(:inline => block.call), local_assigns
+        options.merge!(:inline => block.call)
+        render options, local_assigns
       end
     end  
   end

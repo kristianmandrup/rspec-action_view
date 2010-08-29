@@ -37,7 +37,7 @@ module MyView
   end
 end
 
-describe 'My View extensions!' do
+describe 'Running ERB template engine with View extensions' do
   extend_view_with MyView, :tab, :say
   extend_view_with MyView
   extend_view_with MyView::Blap, 'MyView::Blip'
@@ -48,7 +48,7 @@ describe 'My View extensions!' do
     end
   end
 
-
+  
   it "should extend with module Say - hello, name" do
     with_engine(:erb) do |e|
       e.run_template {"hello <%= name %>"}.should match /Kristian/
@@ -62,13 +62,13 @@ describe 'My View extensions!' do
       end.should match /ged/
     end
   end
-
+  
   it "should extend with modules Blip and Blap" do
     with_engine(:erb) do |e|
       e.run_template {"hello <%= blip %> go <%= blap %>"}.should match /blip me/
     end
   end
-
+  
   it "should extend handle nested blocks in ERB" do
     with_engine(:erb) do |e|
       e.run_template do 
