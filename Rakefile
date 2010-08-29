@@ -9,7 +9,7 @@ begin
     gem.authors = ["Kristian Mandrup"]
     gem.add_development_dependency "rspec", "~> 2.0.0"
     gem.add_dependency "rspec", "~> 2.0.0"    
-    gem.add_dependency "r3_plugin_toolbox", "~> 2.0.0"        
+    gem.add_dependency "r3_plugin_toolbox", "~> 0.3.5"        
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
