@@ -37,7 +37,7 @@ module RSpec
 
         view.extend(Locals)
         view.locals = self.locals
-        view.output_buffer = self.output_buffer
+        view.send :"output_buffer=", self.output_buffer
         view
       end
 
