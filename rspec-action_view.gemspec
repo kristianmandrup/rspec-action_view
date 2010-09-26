@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rspec-action_view}
-  s.version = "0.3.2"
+  s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = %q{2010-09-25}
+  s.date = %q{2010-09-26}
   s.description = %q{RSpec 2 library to make it simple to spec Rails 3 ActionView extensions}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
