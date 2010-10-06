@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = %q{2010-10-06}
+  s.date = %q{2010-10-07}
   s.description = %q{RSpec 2 library to make it simple to spec Rails 3 ActionView extensions}
   s.email = %q{kmandrup@gmail.com}
   s.extra_rdoc_files = [
