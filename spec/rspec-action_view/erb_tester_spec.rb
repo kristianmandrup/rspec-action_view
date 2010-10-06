@@ -43,14 +43,14 @@ describe 'Running ERB template engine with View extensions' do
   extend_view_with MyView::Blap, 'MyView::Blip'
   
   it "should extend with single module MyView" do
-    with_engine(:erb) do |e|
+    view_engine(:erb) do |e|
       e.run_template {"<%= goodbye %>"}.should match /Goodbye/
     end
   end
 
   
   it "should extend with module Say - hello, name" do
-    with_engine(:erb) do |e|
+    view_engine(:erb) do |e|
       e.run_template {"hello <%= name %>"}.should match /Kristian/
   
       e.run_template do 
@@ -64,13 +64,13 @@ describe 'Running ERB template engine with View extensions' do
   end
   
   it "should extend with modules Blip and Blap" do
-    with_engine(:erb) do |e|
+    view_engine(:erb) do |e|
       e.run_template {"hello <%= blip %> go <%= blap %>"}.should match /blip me/
     end
   end
   
   it "should extend handle nested blocks in ERB" do
-    with_engine(:erb) do |e|
+    view_engine(:erb) do |e|
       e.run_template do 
         %{<%= tab_for :x do %>
           <%= hello :blip do %>

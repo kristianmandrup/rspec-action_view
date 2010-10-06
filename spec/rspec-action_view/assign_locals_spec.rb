@@ -12,7 +12,7 @@ module MyView
   
   module Tab
     def tab_for(clazz, &block)               
-      content = with_output_buffer(&block)  
+      content = view_output_buffer(&block)  
       content_tag :li, content, :class => clazz
     end
   end    
@@ -23,7 +23,7 @@ describe 'My View extensions!' do
 
   describe '#run_template' do  
     it "should assign Kristian to the local 'name' that is used in the erb and stub out a method on the view!" do
-      with_engine(:erb) do |e, view|
+      view_engine(:erb) do |e, view|
         view.stubs(:host).returns 'localhost'
         res = e.run_template(:locals => {:name => 'Kristian'}) {"<%= say_goodbye name %> host: <%= host %>"}
         res.should match /Kristian/
@@ -34,7 +34,7 @@ describe 'My View extensions!' do
 
   describe '#run_template' do  
     it "should assign Kristian to the local 'name' that is used in the erb, using full locals hash" do
-      with_engine(:erb) do |e|
+      view_engine(:erb) do |e|
         e.run_template(:locals => {:name => 'Kristian'}) {"<%= say_goodbye name %>"}.should match /Kristian/
       end
     end
@@ -42,7 +42,7 @@ describe 'My View extensions!' do
   
   describe '#run_template_locals' do
     it "should assign Kristian to the local 'name' that is used in the erb, using convenience hash for locals" do
-      with_engine(:erb) do |e|
+      view_engine(:erb) do |e|
         e.run_template_locals :name => 'Kristian' do
           %{<%= say_goodbye name %>}
         end.should match /Kristian/
