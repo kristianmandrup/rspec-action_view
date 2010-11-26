@@ -10,7 +10,7 @@ begin
     gem.add_development_dependency "rspec", ">= 2.0.0"
     
     gem.add_dependency "rspec",             ">= 2.0.0"    
-    gem.add_dependency "r3_plugin_toolbox", "~> 0.3.13"
+    gem.add_dependency "r3_plugin_toolbox", ">= 0.4.0"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
